@@ -83,8 +83,7 @@ class DemandeMaterielController extends Controller
     }
     public function getAllDemande(Request $request){
         $user = $request->user();
-        $DemandeMateriel =DemandeMateriel::where('idDestinataire',$user->id)->with('materiel')->with('responsableClub')->paginate(5);
-
+        $DemandeMateriel =DemandeMateriel::where('idDestinataire',$user->id)->with('materiel')->with('responsableClub')->orderBy('created_at')->paginate(5);
         if(!empty($DemandeMateriel)){
         return response()->json($DemandeMateriel, 200);
         }
