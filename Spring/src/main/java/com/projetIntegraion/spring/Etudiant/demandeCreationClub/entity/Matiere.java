@@ -23,10 +23,10 @@ public class Matiere {
    @NotNull
    private double coeifficent;
    @NotNull
-   @ManyToMany
+   @ManyToOne
    private Classe classe;
    @NotNull
-   @ManyToMany
+   @ManyToOne
    private User enseignant;
     public Matiere() {
     }
